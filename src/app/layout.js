@@ -1,7 +1,10 @@
-import { Inter } from "next/font/google";
+import { M_PLUS_1 } from "next/font/google";
 import "./globals.scss";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = M_PLUS_1({
+  subsets: ["latin-ext"],
+  weight: ["300", "400", "700", "100", "900", "500"],
+});
 
 export const metadata = {
   title: "Gen Funnels",

@@ -1,9 +1,10 @@
 import React from "react";
+import Home from "../../components/screens/Home/Home";
 
 const page = () => {
   return (
     <div>
-      <h2>GenFunnels !</h2>
+      <Home />
     </div>
   );
 };
