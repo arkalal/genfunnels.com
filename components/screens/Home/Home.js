@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../../reuse/Navbar/Navbar";
 import Banner from "../../Banner/Banner";
 import Intro from "../../Intro/Intro";
+import Footer from "../../Footer/Footer";
 
 const Home = () => {
   return (
@@ -9,6 +10,7 @@ const Home = () => {
       <Navbar />
       <Banner />
       <Intro />
+      <Footer />
     </div>
   );
 };
