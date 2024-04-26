@@ -15,12 +15,20 @@
       font-size: 42px;
       font-weight: 800;
       color: #333;
+
+      @media (max-width: 600px) {
+        font-size: 25px;
+      }
     }
 
     p {
       font-size: 18px;
       color: #333;
       line-height: 28px;
+
+      @media (max-width: 600px) {
+        font-size: 15px;
+      }
     }
   }
 
@@ -31,6 +39,11 @@
     justify-content: space-around;
     margin-left: 30px;
     margin-right: 30px;
+
+    @media (max-width: 600px) {
+      flex-direction: column;
+      gap: 30px;
+    }
 
     .IntroStep {
       p {
@@ -50,6 +63,10 @@
       h1 {
         font-weight: 800;
         font-size: 35px;
+
+        @media (max-width: 600px) {
+          font-size: 25px;
+        }
       }
     }
   }
@@ -62,6 +79,10 @@
     box-shadow: 0px 0px 5px -1px rgba(0, 0, 0, 0.75);
     width: 500px;
     padding: 20px;
+
+    @media (max-width: 600px) {
+      width: 90%;
+    }
 
     .pricingCardHeader {
       text-align: left;
