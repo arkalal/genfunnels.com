@@ -24,13 +24,17 @@
   }
 
   .chatHistory {
-    height: 600px;
+    height: 88%;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
     padding: 10px;
     gap: 10px;
     overflow-x: hidden;
+
+    @media (min-width: 760px) and (max-width: 1030px) {
+      height: 92%;
+    }
 
     .chatQuery {
       display: flex;
@@ -91,11 +95,16 @@
 
   .chatForm {
     border-top: 1px solid #ccc;
-    padding: 10px;
+    padding: 0px 10px;
     background: #f8f9fa;
     display: flex;
     align-items: center;
     gap: 8px;
+    height: 12%;
+
+    @media (min-width: 760px) and (max-width: 1030px) {
+      height: 8%;
+    }
 
     input[type="text"] {
       width: calc(100% - 40px); // input width minus button width
