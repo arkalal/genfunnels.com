@@ -1,3 +1,5 @@
+@import "../../styles/mixins.module.scss";
+
 .banner {
   display: flex;
   flex-direction: column;
@@ -12,6 +14,10 @@
       font-weight: 800;
       color: #333;
       text-align: center;
+
+      span {
+        @include gradientText();
+      }
 
       @media (min-width: 100px) and (max-width: 830px) {
         font-size: 30px;

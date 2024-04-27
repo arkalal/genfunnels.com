@@ -27,3 +27,10 @@
     width: 50%;
   }
 }
+
+@mixin gradientText() {
+  background-image: linear-gradient(to right, #acadae, #565555);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
