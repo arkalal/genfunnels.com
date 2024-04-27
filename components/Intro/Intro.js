@@ -9,7 +9,8 @@ const Intro = () => {
       <div className={styles.IntroHeader}>
         <h1>
           {" "}
-          Automate your business with <br /> AI today, and scale profits 🤑{" "}
+          Automate your business with <br /> AI today, and{" "}
+          <span>Scale Profits 🤑</span>{" "}
         </h1>
         <p>
           Our intelligent system learns from every interaction, with
@@ -80,7 +81,7 @@ const Intro = () => {
 
           <div className={styles.priceBtn}>
             <button>
-              <p>Chat with Us</p> <GoArrowRight />
+              <p>Join Waitlist</p> <GoArrowRight />
             </button>
           </div>
           <p className={styles.pricingTagline}>Pay once. Access forever.</p>

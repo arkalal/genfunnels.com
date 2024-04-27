@@ -3,7 +3,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "./ChatAssistants.module.scss";
 import axios from "../../../axios/getApi";
-import { BsChat } from "react-icons/bs";
 import { IoIosArrowDropdown } from "react-icons/io";
 import bubbleImg from "../../../assets/images/funnelBubble.png";
 import Image from "next/image";
