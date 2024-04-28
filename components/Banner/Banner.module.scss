@@ -28,6 +28,10 @@
   }
 
   .bannerDesc {
+    @media (max-width: 600px) {
+      padding: 0 10px;
+    }
+
     p {
       font-size: 18px;
       color: #333;
