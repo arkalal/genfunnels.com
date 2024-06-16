@@ -1,0 +1,9 @@
+@import "../../../../styles/mixins.module.scss";
+
+.WaitlistPopup {
+  @include popupCenter();
+
+  .WaitlistPopupContent {
+    @include popupContent();
+  }
+}

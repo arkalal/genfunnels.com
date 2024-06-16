@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import styles from "./Navbar.module.scss";
 import Image from "next/image";
 import logoImg from "../../../assets/images/logo.png";
-import ChatbotPopup from "../Popups/ChatbotPopup/ChatbotPopup";
+import WaitlistPopup from "../Popups/WaitlistPopup/WaitlistPopup";
 
 const Navbar = () => {
   const [IsPop, setIsPop] = useState(false);
@@ -19,7 +19,7 @@ const Navbar = () => {
         <button onClick={() => setIsPop(true)}>Join Waitlist</button>
       </div>
 
-      {IsPop && <ChatbotPopup setIsPop={setIsPop} />}
+      {IsPop && <WaitlistPopup setIsPop={setIsPop} />}
     </div>
   );
 };
