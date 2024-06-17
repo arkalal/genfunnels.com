@@ -5,7 +5,13 @@ const WaitlistPopup = () => {
   return (
     <div className={styles.WaitlistPopup}>
       <div className={styles.WaitlistPopupContent}>
-        <p>Join Waitlist</p>
+        <form action="">
+          <input placeholder="First Name" type="text" />
+          <input placeholder="Last Name" type="text" />
+          <input placeholder="Email" type="email" />
+
+          <button type="submit">Submit and Join</button>
+        </form>
       </div>
     </div>
   );
