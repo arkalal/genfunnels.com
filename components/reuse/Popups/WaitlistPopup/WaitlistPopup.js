@@ -1,11 +1,18 @@
 import React from "react";
 import styles from "./WaitlistPopup.module.scss";
 
-const WaitlistPopup = () => {
+const WaitlistPopup = ({ setIsPop, setCommunityPopup }) => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    setIsPop(false);
+    setCommunityPopup(true);
+  };
+
   return (
     <div className={styles.WaitlistPopup}>
       <div className={styles.WaitlistPopupContent}>
-        <form action="">
+        <form onSubmit={handleSubmit} action="">
           <input placeholder="First Name" type="text" />
           <input placeholder="Last Name" type="text" />
           <input placeholder="Email" type="email" />
