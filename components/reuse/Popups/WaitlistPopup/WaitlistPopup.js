@@ -1,17 +1,25 @@
 import React from "react";
 import styles from "./WaitlistPopup.module.scss";
+import { IoCloseOutline } from "react-icons/io5";
+import * as dispatcher from "../../../../redux/store/dispatchers";
+import { connect } from "react-redux";
 
-const WaitlistPopup = ({ setIsPop, setCommunityPopup }) => {
+const WaitlistPopup = ({ dispatchWaitlistPopup, dispatchCommunityPopup }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    setIsPop(false);
-    setCommunityPopup(true);
+    dispatchWaitlistPopup(false);
+    dispatchCommunityPopup(true);
   };
 
   return (
     <div className={styles.WaitlistPopup}>
       <div className={styles.WaitlistPopupContent}>
+        <IoCloseOutline
+          onClick={() => dispatchWaitlistPopup(false)}
+          className={styles.WaitlistPopupClose}
+        />
+
         <form onSubmit={handleSubmit} action="">
           <input placeholder="First Name" type="text" />
           <input placeholder="Last Name" type="text" />
@@ -24,4 +32,4 @@ const WaitlistPopup = ({ setIsPop, setCommunityPopup }) => {
   );
 };
 
-export default WaitlistPopup;
+export default connect(null, dispatcher)(WaitlistPopup);

@@ -3,11 +3,14 @@ import Navbar from "../../reuse/Navbar/Navbar";
 import Banner from "../../Banner/Banner";
 import Intro from "../../Intro/Intro";
 import Footer from "../../Footer/Footer";
+import ReduxProvider from "../../../redux/ReduxProvider";
 
 const Home = () => {
   return (
     <div>
-      <Navbar />
+      <ReduxProvider>
+        <Navbar />
+      </ReduxProvider>
       <Banner />
       <Intro />
       <Footer />

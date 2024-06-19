@@ -5,6 +5,15 @@
 
   .WaitlistPopupContent {
     @include popupContent();
+    position: relative;
+
+    .WaitlistPopupClose {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      font-size: 20px;
+      cursor: pointer;
+    }
 
     form {
       display: flex;
@@ -13,6 +22,7 @@
       justify-content: center;
       gap: 20px;
       width: 100%;
+      margin-top: 15px;
 
       input {
         width: 100%;
@@ -34,6 +44,10 @@
         color: black;
         margin-top: 15px;
         transition: all 0.2s ease-in;
+
+        @media (max-width: 600px) {
+          font-size: 12px;
+        }
 
         &:hover {
           background-color: black;

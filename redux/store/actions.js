@@ -1,0 +1,7 @@
+const Actions = {
+  WAITLIST_POPUP: "WAITLIST_POPUP",
+  COMMUNITY_POPUP: "COMMUNITY_POPUP",
+  THANK_YOU_POPUP: "THANK_YOU_POPUP",
+};
+
+export default Actions;

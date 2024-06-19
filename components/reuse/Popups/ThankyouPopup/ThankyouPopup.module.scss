@@ -1,0 +1,9 @@
+@import "../../../../styles/mixins.module.scss";
+
+.ThankyouPopup {
+  @include popupCenter();
+
+  .ThankyouPopupContent {
+    @include popupContent();
+  }
+}

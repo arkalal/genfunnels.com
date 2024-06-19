@@ -6,11 +6,17 @@ import Image from "next/image";
 import logoImg from "../../../assets/images/logo.png";
 import WaitlistPopup from "../Popups/WaitlistPopup/WaitlistPopup";
 import JoinCommunityPopup from "../Popups/JoinCommunityPopup/JoinCommunityPopup";
+import * as dispatcher from "../../../redux/store/dispatchers";
+import { connect } from "react-redux";
+import ReduxProvider from "../../../redux/ReduxProvider";
+import ThankyouPopup from "../Popups/ThankyouPopup/ThankyouPopup";
 
-const Navbar = () => {
-  const [IsPop, setIsPop] = useState(false);
-  const [CommunityPopup, setCommunityPopup] = useState(false);
-
+const Navbar = ({
+  waitlistPopup,
+  communityPopup,
+  thankyouPopup,
+  dispatchWaitlistPopup,
+}) => {
   return (
     <div className={styles.navbar}>
       <div className={styles.logo}>
@@ -18,23 +24,42 @@ const Navbar = () => {
       </div>
 
       <div className={styles.navBtn}>
-        <button onClick={() => setIsPop(true)}>Join Waitlist</button>
+        <button onClick={() => dispatchWaitlistPopup(true)}>
+          Join Waitlist
+        </button>
       </div>
 
-      {IsPop && (
-        <WaitlistPopup
-          setCommunityPopup={setCommunityPopup}
-          setIsPop={setIsPop}
-        />
+      {waitlistPopup && (
+        <ReduxProvider>
+          <WaitlistPopup />
+        </ReduxProvider>
       )}
 
-      {CommunityPopup && (
+      {communityPopup && (
         <>
-          <JoinCommunityPopup setCommunityPopup={setCommunityPopup} />
+          <ReduxProvider>
+            <JoinCommunityPopup />
+          </ReduxProvider>
+        </>
+      )}
+
+      {thankyouPopup && (
+        <>
+          <ReduxProvider>
+            <ThankyouPopup />
+          </ReduxProvider>
         </>
       )}
     </div>
   );
 };
 
-export default Navbar;
+const mapStateToProps = ({ gen }) => {
+  return {
+    waitlistPopup: gen.waitlistPopup,
+    communityPopup: gen.communityPopup,
+    thankyouPopup: gen.thankyouPopup,
+  };
+};
+
+export default connect(mapStateToProps, dispatcher)(Navbar);
