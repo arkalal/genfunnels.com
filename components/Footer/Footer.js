@@ -1,19 +1,23 @@
+"use client";
+
 import React from "react";
 import styles from "./Footer.module.scss";
 import { GoArrowRight } from "react-icons/go";
 import Image from "next/image";
 import logoImg from "../../assets/images/logo.png";
 import ownerImg from "../../assets/images/arkaAvatar.jpeg";
+import * as dispatcher from "../../redux/store/dispatchers";
+import { connect } from "react-redux";
 
-const Footer = () => {
+const Footer = ({ dispatchWaitlistPopup }) => {
   return (
     <div className={styles.Footer}>
       <div className={styles.footerCard}>
         <div className={styles.footCardContent}>
           <h1>Get Customers in Automation</h1>
           <p>Make your visitors convert into paying customers in autopilot</p>
-          <button>
-            <p>Chat with Us</p> <GoArrowRight />
+          <button onClick={() => dispatchWaitlistPopup(true)}>
+            <p>Community</p> <GoArrowRight />
           </button>
         </div>
       </div>
@@ -53,4 +57,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default connect(null, dispatcher)(Footer);

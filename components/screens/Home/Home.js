@@ -11,9 +11,13 @@ const Home = () => {
       <ReduxProvider>
         <Navbar />
       </ReduxProvider>
+
       <Banner />
       <Intro />
-      <Footer />
+
+      <ReduxProvider>
+        <Footer />
+      </ReduxProvider>
     </div>
   );
 };

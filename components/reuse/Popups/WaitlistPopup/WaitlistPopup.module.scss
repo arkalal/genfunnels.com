@@ -24,11 +24,26 @@
       width: 100%;
       margin-top: 15px;
 
-      input {
+      .WaitlistPopupInputs {
         width: 100%;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
+
+        input {
+          width: 100%;
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+        }
+
+        .error {
+          color: red;
+          font-size: 12px;
+          text-align: left;
+          font-weight: bold;
+
+          @media (max-width: 600px) {
+            font-size: 10px;
+          }
+        }
       }
 
       button {

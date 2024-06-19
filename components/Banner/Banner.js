@@ -62,7 +62,7 @@ const Banner = () => {
 
       <div className={styles.bannerBtn}>
         <button>
-          <p>Chat with Us</p> <GoArrowRight />
+          <p>Community</p> <GoArrowRight />
         </button>
       </div>
     </div>
