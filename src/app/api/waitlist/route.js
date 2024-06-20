@@ -23,6 +23,7 @@ export async function POST(req) {
 export async function PUT(req) {
   try {
     const body = await req.json();
+
     await connectMongoDB();
     const { email, isCommunity } = body;
     const user = await Waitlist.findOneAndUpdate(
@@ -30,6 +31,7 @@ export async function PUT(req) {
       { isCommunity },
       { new: true }
     );
+
     return NextResponse.json(
       { message: "Waitlist User Updated", user },
       { status: 200 }
