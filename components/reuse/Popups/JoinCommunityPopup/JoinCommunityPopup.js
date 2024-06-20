@@ -3,15 +3,22 @@ import styles from "./JoinCommunityPopup.module.scss";
 import { FaDiscord } from "react-icons/fa";
 import { connect } from "react-redux";
 import * as dispatcher from "../../../../redux/store/dispatchers";
+import axios from "../../../../axios/api";
 
 const JoinCommunityPopup = ({
   dispatchCommunityPopup,
   dispatchThankyouPopup,
+  waitlistEmail,
 }) => {
-  const joinCommunity = () => {
-    window.open("https://discord.gg/6ZqJ8z4e", "_blank");
-    dispatchCommunityPopup(false);
-    dispatchThankyouPopup(true);
+  const joinCommunity = async () => {
+    try {
+      await axios.put("/waitlist", { email: waitlistEmail, isCommunity: true });
+      window.open("https://discord.gg/6ZqJ8z4e", "_blank");
+      dispatchCommunityPopup(false);
+      dispatchThankyouPopup(true);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -50,4 +57,10 @@ const JoinCommunityPopup = ({
   );
 };
 
-export default connect(null, dispatcher)(JoinCommunityPopup);
+const mapStateToProps = ({ gen }) => {
+  return {
+    waitlistEmail: gen.waitlistEmail,
+  };
+};
+
+export default connect(mapStateToProps, dispatcher)(JoinCommunityPopup);

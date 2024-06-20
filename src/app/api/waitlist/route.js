@@ -20,6 +20,29 @@ export async function POST(req) {
   }
 }
 
+export async function PUT(req) {
+  try {
+    const body = await req.json();
+    await connectMongoDB();
+    const { email, isCommunity } = body;
+    const user = await Waitlist.findOneAndUpdate(
+      { email },
+      { isCommunity },
+      { new: true }
+    );
+    return NextResponse.json(
+      { message: "Waitlist User Updated", user },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.log(error);
+    return NextResponse.json(
+      { message: "Error Updating Waitlist User" },
+      { status: 400 }
+    );
+  }
+}
+
 export async function GET() {
   try {
     await connectMongoDB();

@@ -3,8 +3,13 @@ import styles from "./WaitlistPopup.module.scss";
 import { IoCloseOutline } from "react-icons/io5";
 import * as dispatcher from "../../../../redux/store/dispatchers";
 import { connect } from "react-redux";
+import axios from "../../../../axios/api";
 
-const WaitlistPopup = ({ dispatchWaitlistPopup, dispatchCommunityPopup }) => {
+const WaitlistPopup = ({
+  dispatchWaitlistPopup,
+  dispatchCommunityPopup,
+  dispatchWaitlistEmail,
+}) => {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -51,8 +56,23 @@ const WaitlistPopup = ({ dispatchWaitlistPopup, dispatchCommunityPopup }) => {
       setErrors(newErrors);
     } else {
       setErrors({});
-      dispatchWaitlistPopup(false);
-      dispatchCommunityPopup(true);
+
+      const data = {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        isCommunity: false,
+      };
+
+      dispatchWaitlistEmail(formData.email);
+
+      const res = await axios.post("/waitlist", data);
+
+      if (res.status === 200) {
+        console.log("Data saved successfully");
+        dispatchWaitlistPopup(false);
+        dispatchCommunityPopup(true);
+      }
     }
   };
 

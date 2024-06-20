@@ -19,3 +19,10 @@ export const dispatchThankyouPopup = (data) => {
     data,
   };
 };
+
+export const dispatchWaitlistEmail = (data) => {
+  return {
+    type: Actions.WAITLIST_EMAIL,
+    data,
+  };
+};

@@ -4,6 +4,7 @@ const defaultState = {
   waitlistPopup: false,
   communityPopup: false,
   thankyouPopup: false,
+  waitlistEmail: null,
 };
 
 const genFunnelsReducer = (state = defaultState, action) => {
@@ -22,6 +23,12 @@ const genFunnelsReducer = (state = defaultState, action) => {
       return {
         ...state,
         thankyouPopup: action.data,
+      };
+
+    case Actions.WAITLIST_EMAIL:
+      return {
+        ...state,
+        waitlistEmail: action.data,
       };
 
     default:
