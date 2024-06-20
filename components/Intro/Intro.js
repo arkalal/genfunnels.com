@@ -1,9 +1,13 @@
+"use client";
+
 import React from "react";
 import styles from "./Intro.module.scss";
 import { IoCheckmark } from "react-icons/io5";
 import { GoArrowRight } from "react-icons/go";
+import * as dispatcher from "../../redux/store/dispatchers";
+import { connect } from "react-redux";
 
-const Intro = () => {
+const Intro = ({ dispatchWaitlistPopup }) => {
   return (
     <div className={styles.Intro}>
       <div className={styles.IntroHeader}>
@@ -80,7 +84,7 @@ const Intro = () => {
           </div>
 
           <div className={styles.priceBtn}>
-            <button>
+            <button onClick={() => dispatchWaitlistPopup(true)}>
               <p>Join Waitlist</p> <GoArrowRight />
             </button>
           </div>
@@ -91,4 +95,4 @@ const Intro = () => {
   );
 };
 
-export default Intro;
+export default connect(null, dispatcher)(Intro);

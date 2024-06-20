@@ -5,8 +5,10 @@ import styles from "./Banner.module.scss";
 import { IoCheckmark } from "react-icons/io5";
 import { GoArrowRight } from "react-icons/go";
 import { Typewriter } from "react-simple-typewriter";
+import * as dispatcher from "../../redux/store/dispatchers";
+import { connect } from "react-redux";
 
-const Banner = () => {
+const Banner = ({ dispatchWaitlistPopup }) => {
   const typingData = ["Funnels", "Chatbot", "Assistants"];
 
   return (
@@ -61,12 +63,12 @@ const Banner = () => {
       </div>
 
       <div className={styles.bannerBtn}>
-        <button>
-          <p>Chat with Us</p> <GoArrowRight />
+        <button onClick={() => dispatchWaitlistPopup(true)}>
+          <p>Community</p> <GoArrowRight />
         </button>
       </div>
     </div>
   );
 };
 
-export default Banner;
+export default connect(null, dispatcher)(Banner);

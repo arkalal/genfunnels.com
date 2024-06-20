@@ -3,17 +3,26 @@ import Navbar from "../../reuse/Navbar/Navbar";
 import Banner from "../../Banner/Banner";
 import Intro from "../../Intro/Intro";
 import Footer from "../../Footer/Footer";
-import ChatAssistants from "../../reuse/ChatAssistants/ChatAssistants";
+import ReduxProvider from "../../../redux/ReduxProvider";
 
 const Home = () => {
   return (
     <div>
-      <Navbar />
-      <Banner />
-      <Intro />
-      <Footer />
+      <ReduxProvider>
+        <Navbar />
+      </ReduxProvider>
 
-      <ChatAssistants />
+      <ReduxProvider>
+        <Banner />
+      </ReduxProvider>
+
+      <ReduxProvider>
+        <Intro />
+      </ReduxProvider>
+
+      <ReduxProvider>
+        <Footer />
+      </ReduxProvider>
     </div>
   );
 };

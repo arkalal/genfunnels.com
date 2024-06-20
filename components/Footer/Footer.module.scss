@@ -76,12 +76,12 @@
       justify-content: center;
       gap: 15px;
 
-      @media (min-width: 100px) and (max-width: 830px) {
+      @media (min-width: 100px) and (max-width: 1030px) {
         flex-direction: column;
       }
 
       p {
-        @media (min-width: 100px) and (max-width: 830px) {
+        @media (min-width: 100px) and (max-width: 1030px) {
           font-size: 13px;
           margin: 0 10px;
         }
