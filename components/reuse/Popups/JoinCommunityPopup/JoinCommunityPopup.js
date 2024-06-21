@@ -4,12 +4,15 @@ import { FaDiscord } from "react-icons/fa";
 import { connect } from "react-redux";
 import * as dispatcher from "../../../../redux/store/dispatchers";
 import axios from "../../../../axios/api";
+import { useRouter } from "next/navigation";
 
 const JoinCommunityPopup = ({
   dispatchCommunityPopup,
   dispatchThankyouPopup,
   waitlistEmail,
 }) => {
+  const router = useRouter();
+
   const joinCommunity = async () => {
     try {
       const res = await axios.put("/waitlist", {
@@ -20,13 +23,9 @@ const JoinCommunityPopup = ({
       if (res.status === 200) {
         const discordLink = "https://discord.gg/6ZqJ8z4e";
 
-        if (window.innerWidth <= 800 && window.innerHeight <= 600) {
-          // For mobile devices, use window.location.href
-          window.location.href = discordLink;
-        } else {
-          // For desktop devices, use window.open
-          window.open(discordLink, "_blank");
-        }
+        setTimeout(() => {
+          router.push(discordLink);
+        }, 2000);
 
         dispatchCommunityPopup(false);
         dispatchThankyouPopup(true);
