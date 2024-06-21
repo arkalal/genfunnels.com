@@ -12,10 +12,25 @@ const JoinCommunityPopup = ({
 }) => {
   const joinCommunity = async () => {
     try {
-      await axios.put("/waitlist", { email: waitlistEmail, isCommunity: true });
-      window.open("https://discord.gg/6ZqJ8z4e", "_blank");
-      dispatchCommunityPopup(false);
-      dispatchThankyouPopup(true);
+      const res = await axios.put("/waitlist", {
+        email: waitlistEmail,
+        isCommunity: true,
+      });
+
+      if (res.status === 200) {
+        const discordLink = "https://discord.gg/6ZqJ8z4e";
+
+        if (window.innerWidth <= 800 && window.innerHeight <= 600) {
+          // For mobile devices, use window.location.href
+          window.location.href = discordLink;
+        } else {
+          // For desktop devices, use window.open
+          window.open(discordLink, "_blank");
+        }
+
+        dispatchCommunityPopup(false);
+        dispatchThankyouPopup(true);
+      }
     } catch (error) {
       console.log(error);
     }
