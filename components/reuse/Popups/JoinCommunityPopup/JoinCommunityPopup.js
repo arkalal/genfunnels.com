@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./JoinCommunityPopup.module.scss";
 import { FaDiscord } from "react-icons/fa";
 import { connect } from "react-redux";
@@ -13,7 +13,10 @@ const JoinCommunityPopup = ({
 }) => {
   const router = useRouter();
 
+  const [Disable, setDisable] = useState(false);
+
   const joinCommunity = async () => {
+    setDisable(true);
     try {
       const res = await axios.put("/waitlist", {
         email: waitlistEmail,
@@ -51,7 +54,7 @@ const JoinCommunityPopup = ({
 
           <div className={styles.JoinCommunityPopupOptions}>
             <div className={styles.JoinCommunityPopupBtns}>
-              <button onClick={joinCommunity}>
+              <button disabled={Disable} onClick={joinCommunity}>
                 {" "}
                 <FaDiscord className={styles.FaDiscordCommunityPopup} /> Join
                 Community

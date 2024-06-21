@@ -16,6 +16,7 @@ const WaitlistPopup = ({
     email: "",
   });
   const [errors, setErrors] = useState({});
+  const [Disable, setDisable] = useState(false);
 
   const validateEmail = (email) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -56,6 +57,7 @@ const WaitlistPopup = ({
       setErrors(newErrors);
     } else {
       setErrors({});
+      setDisable(true);
 
       const data = {
         firstName: formData.firstName,
@@ -122,7 +124,9 @@ const WaitlistPopup = ({
             {errors.email && <p className={styles.error}>{errors.email}</p>}
           </div>
 
-          <button type="submit">Submit and Join</button>
+          <button disabled={Disable} type="submit">
+            Submit and Join
+          </button>
         </form>
       </div>
     </div>
