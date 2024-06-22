@@ -5,6 +5,8 @@
 
   .WaitlistPopupContent {
     @include popupContent();
+
+    top: 28%;
     position: relative;
 
     .WaitlistPopupClose {

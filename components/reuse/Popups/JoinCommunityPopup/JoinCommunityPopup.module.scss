@@ -4,7 +4,19 @@
   @include popupCenter();
 
   .JoinCommunityPopupContent {
-    @include CommunityPopupContent();
+    @include popupContent();
+
+    top: 20%;
+    max-width: 90vw; // Ensure the popup does not exceed 90% of the viewport width
+    max-height: 90vh; // Ensure the popup does not exceed 90% of the viewport height
+
+    @media (min-width: 1030px) and (max-width: 1300px) {
+      top: 5%;
+    }
+
+    @media (max-width: 1030px) {
+      top: 10%;
+    }
 
     .JoinCommunityPopupInfo {
       display: flex;
