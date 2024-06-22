@@ -24,7 +24,7 @@ const JoinCommunityPopup = ({
       });
 
       if (res.status === 200) {
-        const discordLink = "https://discord.gg/6ZqJ8z4e";
+        const discordLink = "https://discord.gg/Q5U8Rwnp";
 
         setTimeout(() => {
           router.push(discordLink);
