@@ -6,6 +6,8 @@
   .ThankyouPopupContent {
     @include popupContent();
 
+    top: 30%;
+
     .ThankyouPopupInfo {
       display: flex;
       flex-direction: column;
