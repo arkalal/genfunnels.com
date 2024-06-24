@@ -7,6 +7,7 @@
     @include popupContent();
 
     top: 20%;
+    background-color: white;
     max-width: 90vw; // Ensure the popup does not exceed 90% of the viewport width
     max-height: 90vh; // Ensure the popup does not exceed 90% of the viewport height
 
