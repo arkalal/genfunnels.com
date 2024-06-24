@@ -6,6 +6,7 @@
   .WaitlistPopupContent {
     @include popupContent();
 
+    background-color: white;
     top: 25%;
     position: relative;
 
